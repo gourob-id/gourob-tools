@@ -1,80 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aadhaar Print Pro | Gourob Tools</title>
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Aadhaar Print Pro</title>
 
 <link rel="stylesheet" href="../pages/css/aadhaar.css">
 
 </head>
+
 <body>
 
-<header class="topbar">
+<div class="container">
 
-<div class="logo">
-🪪 Gourob Tools
-</div>
+<h1>🪪 Aadhaar Print Pro</h1>
 
-<h1>Aadhaar Print Pro</h1>
+<div class="uploadArea">
 
-</header>
+<div class="cardBox">
 
-<main class="container">
-
-<section class="upload-card">
-
-<h2>Front Side</h2>
+<h2>Aadhaar Front</h2>
 
 <input
 type="file"
-id="frontImage"
+id="frontInput"
 accept="image/*">
 
-<div class="preview-box">
+<div class="preview">
 
-<img
-id="frontPreview"
-alt="Front Preview">
+<img id="frontPreview">
 
 </div>
 
-</section>
+<div class="tools">
 
-<section class="upload-card">
+<button id="frontCrop">
 
-<h2>Back Side</h2>
+Crop
+
+</button>
+
+<button id="frontLeft">
+
+↺
+
+</button>
+
+<button id="frontRight">
+
+↻
+
+</button>
+
+<button id="frontRemove">
+
+Remove
+
+</button>
+
+</div>
+
+</div>
+
+<div class="cardBox">
+
+<h2>Aadhaar Back</h2>
 
 <input
 type="file"
-id="backImage"
+id="backInput"
 accept="image/*">
 
-<div class="preview-box">
+<div class="preview">
 
-<img
-id="backPreview"
-alt="Back Preview">
+<img id="backPreview">
 
 </div>
 
-</section>
+<div class="tools">
 
-<section class="actions">
+<button id="backCrop">
+
+Crop
+
+</button>
+
+<button id="backLeft">
+
+↺
+
+</button>
+
+<button id="backRight">
+
+↻
+
+</button>
+
+<button id="backRemove">
+
+Remove
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<h2>A4 Preview</h2>
+
+<div class="a4">
+
+<div class="card frontCard">
+
+<img id="printFront">
+
+</div>
+
+<div class="card backCard">
+
+<img id="printBack">
+
+</div>
+
+</div>
+
+<div class="bottomButtons">
+
+<button id="fitBtn">
+
+Fit To Page
+
+</button>
+
+<button id="actualBtn">
+
+Actual Size
+
+</button>
+
+<button id="resetBtn">
+
+Reset
+
+</button>
 
 <button id="printBtn">
+
 🖨 Print
+
 </button>
 
-<button id="clearBtn">
-❌ Clear
+<button id="pdfBtn">
+
+PDF
+
 </button>
 
-</section>
-
-</main>
+</div>
 
 <script src="../pages/js/aadhaar.js"></script>
 
 </body>
+
 </html>
