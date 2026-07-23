@@ -3,257 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Aadhaar Print Pro | Gourob Tools</title>
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
-}
-
-body{
-background:#eef3fb;
-}
-
-header{
-background:#1565C0;
-color:white;
-padding:18px;
-text-align:center;
-font-size:24px;
-font-weight:bold;
-}
-
-.container{
-width:95%;
-max-width:1000px;
-margin:25px auto;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,.1);
-margin-bottom:25px;
-}
-
-h2{
-margin-bottom:15px;
-color:#1565C0;
-}
-
-.uploadBox{
-border:2px dashed #1565C0;
-padding:25px;
-border-radius:12px;
-text-align:center;
-margin-top:15px;
-}
-
-input[type=file]{
-width:100%;
-margin-top:15px;
-}
-
-.preview{
-margin-top:20px;
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.preview img{
-
-width:300px;
-
-height:auto;
-
-border-radius:10px;
-
-border:2px solid #ddd;
-
-display:none;
-
-}
-
-.buttons{
-
-margin-top:25px;
-
-display:flex;
-
-gap:15px;
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-}
-
-button{
-
-padding:14px 28px;
-
-border:none;
-
-border-radius:8px;
-
-background:#1565C0;
-
-color:white;
-
-font-size:16px;
-
-cursor:pointer;
-
-}
-
-button:hover{
-
-background:#0D47A1;
-
-}
-
-footer{
-
-text-align:center;
-
-padding:25px;
-
-color:#666;
-
-}
-
-</style>
+<link rel="stylesheet" href="../pages/css/aadhaar.css">
 
 </head>
-
 <body>
 
-<header>
+<header class="topbar">
 
-🪪 Aadhaar Card Print
+<div class="logo">
+🪪 Gourob Tools
+</div>
+
+<h1>Aadhaar Print Pro</h1>
 
 </header>
 
-<div class="container">
+<main class="container">
 
-<div class="card">
+<section class="upload-card">
 
-<h2>Upload Aadhaar Card</h2>
+<h2>Front Side</h2>
 
-<div class="uploadBox">
+<input
+type="file"
+id="frontImage"
+accept="image/*">
 
-<h3>Front Side</h3>
+<div class="preview-box">
 
-<input type="file" id="frontImage" accept="image/*">
-
-<br><br>
-
-<h3>Back Side</h3>
-
-<input type="file" id="backImage" accept="image/*">
-
-</div>
-
-<div class="preview">
-
-<img id="frontPreview">
-
-<img id="backPreview">
+<img
+id="frontPreview"
+alt="Front Preview">
 
 </div>
 
-<div class="buttons">
+</section>
+
+<section class="upload-card">
+
+<h2>Back Side</h2>
+
+<input
+type="file"
+id="backImage"
+accept="image/*">
+
+<div class="preview-box">
+
+<img
+id="backPreview"
+alt="Back Preview">
+
+</div>
+
+</section>
+
+<section class="actions">
 
 <button id="printBtn">
-
 🖨 Print
-
 </button>
 
 <button id="clearBtn">
-
 ❌ Clear
-
 </button>
 
-</div>
+</section>
 
-</div>
+</main>
 
-<footer>
-
-Developed by Gourob Biswas
-
-</footer>
-
-<script>
-
-const frontInput = document.getElementById("frontImage");
-const backInput = document.getElementById("backImage");
-
-const frontPreview = document.getElementById("frontPreview");
-const backPreview = document.getElementById("backPreview");
-
-frontInput.addEventListener("change", function(){
-
-const file = this.files[0];
-
-if(file){
-
-frontPreview.src = URL.createObjectURL(file);
-
-frontPreview.style.display = "block";
-
-}
-
-});
-
-backInput.addEventListener("change", function(){
-
-const file = this.files[0];
-
-if(file){
-
-backPreview.src = URL.createObjectURL(file);
-
-backPreview.style.display = "block";
-
-}
-
-});
-
-document.getElementById("clearBtn").addEventListener("click", ()=>{
-
-frontInput.value = "";
-
-backInput.value = "";
-
-frontPreview.src = "";
-
-backPreview.src = "";
-
-frontPreview.style.display = "none";
-
-backPreview.style.display = "none";
-
-});
-
-document.getElementById("printBtn").addEventListener("click", ()=>{
-
-window.print();
-
-});
-
-</script>
+<script src="../pages/js/aadhaar.js"></script>
 
 </body>
-
 </html>
