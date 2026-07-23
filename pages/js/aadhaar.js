@@ -1,38 +1,127 @@
-const frontInput = document.getElementById("frontImage");
-const backInput = document.getElementById("backImage");
+const frontInput = document.getElementById("frontInput");
+const backInput = document.getElementById("backInput");
 
 const frontPreview = document.getElementById("frontPreview");
 const backPreview = document.getElementById("backPreview");
 
-frontInput.addEventListener("change", function () {
-    const file = this.files[0];
+const printFront = document.getElementById("printFront");
+const printBack = document.getElementById("printBack");
 
-    if (file) {
-        frontPreview.src = URL.createObjectURL(file);
-        frontPreview.style.display = "block";
-    }
-});
+function loadImage(input, preview, printImg) {
 
-backInput.addEventListener("change", function () {
-    const file = this.files[0];
+    input.addEventListener("change", function () {
 
-    if (file) {
-        backPreview.src = URL.createObjectURL(file);
-        backPreview.style.display = "block";
-    }
-});
+        const file = this.files[0];
 
-document.getElementById("clearBtn").addEventListener("click", () => {
+        if (!file) return;
+
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+
+            preview.src = e.target.result;
+            preview.style.display = "block";
+
+            printImg.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+
+    });
+
+}
+
+loadImage(frontInput, frontPreview, printFront);
+loadImage(backInput, backPreview, printBack);
+
+// Remove Front
+document.getElementById("frontRemove").onclick = () => {
+
     frontInput.value = "";
-    backInput.value = "";
 
     frontPreview.src = "";
-    backPreview.src = "";
-
     frontPreview.style.display = "none";
-    backPreview.style.display = "none";
-});
 
-document.getElementById("printBtn").addEventListener("click", () => {
+    printFront.src = "";
+
+};
+
+// Remove Back
+document.getElementById("backRemove").onclick = () => {
+
+    backInput.value = "";
+
+    backPreview.src = "";
+    backPreview.style.display = "none";
+
+    printBack.src = "";
+
+};
+
+// Print
+document.getElementById("printBtn").onclick = () => {
+
     window.print();
-});
+
+};
+
+// Placeholder Buttons
+document.getElementById("fitBtn").onclick = () => {
+
+    alert("Fit To Page - Coming Soon");
+
+};
+
+document.getElementById("actualBtn").onclick = () => {
+
+    alert("Actual Size - Coming Soon");
+
+};
+
+document.getElementById("resetBtn").onclick = () => {
+
+    location.reload();
+
+};
+
+document.getElementById("frontCrop").onclick = () => {
+
+    alert("Crop Feature - Part 4");
+
+};
+
+document.getElementById("backCrop").onclick = () => {
+
+    alert("Crop Feature - Part 4");
+
+};
+
+document.getElementById("frontLeft").onclick = () => {
+
+    alert("Rotate Left - Part 4");
+
+};
+
+document.getElementById("frontRight").onclick = () => {
+
+    alert("Rotate Right - Part 4");
+
+};
+
+document.getElementById("backLeft").onclick = () => {
+
+    alert("Rotate Left - Part 4");
+
+};
+
+document.getElementById("backRight").onclick = () => {
+
+    alert("Rotate Right - Part 4");
+
+};
+
+document.getElementById("pdfBtn").onclick = () => {
+
+    alert("PDF Download - Part 5");
+
+};
