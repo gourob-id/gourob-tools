@@ -212,56 +212,48 @@ font-size:15px;
 
 /* ===== PRINT ===== */
 
+/* ===== PRINT ===== */
+
 @media print {
 
-body *{
-visibility:hidden;
+body{
+    margin:0;
+    padding:0;
+    background:#fff;
 }
 
-.a4,
-.a4 *{
-visibility:visible;
+.uploadArea,
+.bottomButtons,
+h1,
+h2{
+    display:none !important;
 }
 
 .a4{
-position:absolute;
-left:0;
-top:0;
-margin:0;
-padding:10mm;
-box-shadow:none;
-width:210mm;
-min-height:297mm;
-}
-
-.bottomButtons{
-display:none !important;
-}
-
-.uploadArea{
-display:none !important;
-}
-
-h1{
-display:none !important;
-}
-
-.container{
-width:100%;
-margin:0;
+    width:210mm;
+    height:297mm;
+    margin:0 auto;
+    padding:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12mm;
+    box-shadow:none;
+    background:#fff;
 }
 
 .card{
-width:86mm !important;
-height:54mm !important;
-margin-bottom:8mm;
-page-break-inside:avoid;
+    width:86mm !important;
+    height:54mm !important;
+    margin:0 !important;
+    border:1px solid #000;
+    page-break-inside:avoid;
 }
 
 .card img{
-width:100%;
-height:100%;
-object-fit:cover;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 }
