@@ -80,23 +80,32 @@ cursor:pointer;
 }
 
 .a4{
-background:white;
-width:210mm;
-min-height:297mm;
-margin:40px auto;
-padding:20mm;
-box-shadow:0 10px 25px rgba(0,0,0,.15);
+    background:#fff;
+    width:210mm;
+    min-height:297mm;
+    margin:40px auto;
+    padding:20mm;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15mm;
+    flex-wrap:nowrap;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
 .card{
-width:86mm;
-height:54mm;
-border:2px solid #999;
-margin-bottom:20px;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
+    width:86mm;
+    height:54mm;
+    border:2px solid #999;
+    margin-bottom:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+
+    flex:0 0 auto;
 }
 
 .card img{
