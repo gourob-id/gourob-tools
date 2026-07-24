@@ -72,9 +72,69 @@ document.getElementById("backRemove").onclick = () => {
 };
 
 // Print
+// Print Only A4
 document.getElementById("printBtn").onclick = () => {
 
-    window.print();
+    const printContents = document.querySelector(".a4").outerHTML;
+
+    const printWindow = window.open("", "_blank");
+
+    printWindow.document.write(`
+<!DOCTYPE html>
+<html>
+<head>
+<title>Aadhaar Print</title>
+<style>
+
+body{
+margin:0;
+padding:0;
+display:flex;
+justify-content:center;
+align-items:flex-start;
+background:white;
+}
+
+.a4{
+width:210mm;
+min-height:297mm;
+padding:10mm;
+box-sizing:border-box;
+}
+
+.card{
+width:86mm;
+height:54mm;
+border:1px solid #999;
+margin-bottom:8mm;
+overflow:hidden;
+}
+
+.card img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+</style>
+</head>
+<body>
+
+${printContents}
+
+<script>
+window.onload=function(){
+window.print();
+window.close();
+}
+<\/script>
+
+</body>
+</html>
+    `);
+
+    printWindow.document.close();
 
 };
 
