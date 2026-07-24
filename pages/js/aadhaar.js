@@ -166,3 +166,70 @@ function openCrop(imageSrc, previewTarget, printTarget) {
     });
 
 }
+
+// ===== Crop Modal Buttons =====
+
+// Rotate Left
+rotateLeftBtn.onclick = () => {
+    if (cropper) {
+        cropper.rotate(-90);
+    }
+};
+
+// Rotate Right
+rotateRightBtn.onclick = () => {
+    if (cropper) {
+        cropper.rotate(90);
+    }
+};
+
+// Apply Crop
+cropSaveBtn.onclick = () => {
+
+    if (!cropper) return;
+
+    const canvas = cropper.getCroppedCanvas({
+        width: 860,
+        height: 540,
+        imageSmoothingQuality: "high"
+    });
+
+    const croppedImage = canvas.toDataURL("image/png");
+
+    currentTarget.src = croppedImage;
+    currentPrintTarget.src = croppedImage;
+
+    cropper.destroy();
+    cropper = null;
+
+    cropModal.style.display = "none";
+
+};
+
+// Cancel Crop
+cropCancelBtn.onclick = () => {
+
+    if (cropper) {
+        cropper.destroy();
+        cropper = null;
+    }
+
+    cropModal.style.display = "none";
+
+};
+
+// Close Modal
+cropModal.onclick = (e) => {
+
+    if (e.target === cropModal) {
+
+        if (cropper) {
+            cropper.destroy();
+            cropper = null;
+        }
+
+        cropModal.style.display = "none";
+
+    }
+
+};
