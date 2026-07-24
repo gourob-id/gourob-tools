@@ -99,13 +99,17 @@ document.getElementById("resetBtn").onclick = () => {
 
 document.getElementById("frontCrop").onclick = () => {
 
-    alert("Crop Feature - Part 4");
+    if (!frontPreview.src) return;
+
+    openCrop(frontPreview.src, frontPreview, printFront);
 
 };
 
 document.getElementById("backCrop").onclick = () => {
 
-    alert("Crop Feature - Part 4");
+    if (!backPreview.src) return;
+
+    openCrop(backPreview.src, backPreview, printBack);
 
 };
 
@@ -138,3 +142,27 @@ document.getElementById("pdfBtn").onclick = () => {
     alert("PDF Download - Part 5");
 
 };
+
+// ===== Crop Functions =====
+
+function openCrop(imageSrc, previewTarget, printTarget) {
+
+    currentTarget = previewTarget;
+    currentPrintTarget = printTarget;
+
+    cropModal.style.display = "flex";
+
+    cropImage.src = imageSrc;
+
+    if (cropper) {
+        cropper.destroy();
+    }
+
+    cropper = new Cropper(cropImage, {
+        aspectRatio: 86 / 54,
+        viewMode: 1,
+        autoCropArea: 1,
+        responsive: true
+    });
+
+}
