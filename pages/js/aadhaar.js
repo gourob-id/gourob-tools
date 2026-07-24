@@ -73,9 +73,10 @@ document.getElementById("backRemove").onclick = () => {
 
 // Print
 // Print Only A4
+// Print
 document.getElementById("printBtn").onclick = () => {
 
-    const printContents = document.querySelector(".a4").outerHTML;
+    const printArea = document.querySelector(".a4");
 
     const printWindow = window.open("", "_blank");
 
@@ -84,30 +85,34 @@ document.getElementById("printBtn").onclick = () => {
 <html>
 <head>
 <title>Aadhaar Print</title>
-<style>
 
+<link rel="stylesheet" href="../css/aadhaar.css">
+
+<style>
 body{
 margin:0;
-padding:0;
-display:flex;
-justify-content:center;
-align-items:flex-start;
-background:white;
+background:#fff;
+}
+
+.uploadArea,
+.bottomButtons,
+h1,
+h2{
+display:none !important;
 }
 
 .a4{
 width:210mm;
 min-height:297mm;
+margin:0 auto;
 padding:10mm;
-box-sizing:border-box;
+box-shadow:none;
 }
 
 .card{
 width:86mm;
 height:54mm;
-border:1px solid #999;
 margin-bottom:8mm;
-overflow:hidden;
 }
 
 .card img{
@@ -116,25 +121,26 @@ height:100%;
 object-fit:cover;
 display:block;
 }
-
 </style>
+
 </head>
+
 <body>
 
-${printContents}
-
-<script>
-window.onload=function(){
-window.print();
-window.close();
-}
-<\/script>
+${printArea.outerHTML}
 
 </body>
+
 </html>
-    `);
+`);
 
     printWindow.document.close();
+
+    printWindow.focus();
+
+    setTimeout(() => {
+        printWindow.print();
+    }, 500);
 
 };
 
