@@ -1,3 +1,16 @@
+// ===== Crop Variables =====
+let cropper = null;
+let currentTarget = null;
+let currentPrintTarget = null;
+
+const cropModal = document.getElementById("cropModal");
+const cropImage = document.getElementById("cropImage");
+
+const rotateLeftBtn = document.getElementById("rotateLeftBtn");
+const rotateRightBtn = document.getElementById("rotateRightBtn");
+const cropSaveBtn = document.getElementById("cropSaveBtn");
+const cropCancelBtn = document.getElementById("cropCancelBtn");
+
 const frontInput = document.getElementById("frontInput");
 const backInput = document.getElementById("backInput");
 
